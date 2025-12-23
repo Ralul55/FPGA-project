@@ -48,12 +48,19 @@ end FSM;
 
 architecture Behavioral of FSM is
 
-    signal piso_actual  : natural range 1 to 4 := 1;
-    signal piso_deseado : natural range 1 to 4 := 1;
+    signal piso_actual  : integer range 1 to 4 := 1;
+    signal piso_deseado : integer range 1 to 4 := 1;
     signal botones_comb : std_logic_vector(8 downto 1);
 
     type ESTADOS is (Reposo, Subiendo, Bajando, Abriendo, Cerrando, Espera);
-    signal estado_actual, estado_siguiente : ESTADOS;
+    signal estado_actual : ESTADOS := Reposo;
+    signal estado_siguiente : ESTADOS;
+    
+    constant CLK_FREQ      : integer := 100000000; -- 100 MHz
+    constant TIEMPO_ESPERA : integer := 5;           -- segundos
+    constant MAX_COUNT : integer := CLK_FREQ * TIEMPO_ESPERA;
+    signal timer_cnt  : integer range 0 to MAX_COUNT := 0;
+    signal timer_done : std_logic := '0';
 
 begin
     --------------------------------------------
@@ -70,22 +77,75 @@ begin
 
     --------------------------------------------
     -- Aquí se programará la acción del botón RESET (Activo a nivel bajo CREO)
-    registro_estados: process (RESET, CLK)
+    timer_y_registros: process (RESET, CLK)
         begin
             if RESET = '0' THEN 
                  estado_actual <= Reposo;
+                 timer_cnt  <= 0;
+                 timer_done <= '0';
             elsif rising_edge(CLK) THEN
-                 estado_actual <= estado_siguiente;
+                 estado_actual <= estado_siguiente; -- Actualizacion Estado
+                 
+                if estado_actual = Espera then
+                    if S_presencia = '1' then
+                        timer_cnt  <= 0;        -- alguien presente
+                        timer_done <= '0';
+                    else
+                        if timer_cnt < MAX_COUNT then
+                            timer_cnt <= timer_cnt + 1;
+                            timer_done <= '0';
+                        else
+                            timer_done <= '1'; -- tiempo agotado
+                        end if;
+                    end if;
+                else
+                    timer_cnt  <= 0;            -- fuera de Espera
+                    timer_done <= '0';
+                end if;
             end if;
+            
     end process;
     --------------------------------------------
     
   
     ------------------------------------------------------------------------------------
     -- Aquí se programará transición entre estados
-    cambio_estados: process(S_fin_carrera, S_ini_carrera, S_presencia, piso_deseado)
+    cambio_estados: process(estado_actual, S_fin_carrera, S_ini_carrera, S_presencia, piso_deseado, piso_actual, timer_done)
     begin
-        
+        estado_siguiente <= estado_actual;
+        case estado_actual is
+            when Reposo =>
+                -- De Reposo a Subiendo
+                if (piso_actual < piso_deseado) then estado_siguiente <= Subiendo;
+                -- De Reposo a Bajando
+                elsif(piso_actual > piso_deseado) then estado_siguiente <= Bajando;
+                -- De Reposo a Abriendo
+                elsif(piso_actual = piso_deseado) then estado_siguiente <= Abriendo;
+                end if;
+            when Subiendo =>
+                -- De Subiendo a Abriendo
+                if(piso_actual = piso_deseado) then estado_siguiente <= Abriendo;
+                end if;
+            when Bajando =>
+                -- De Bajando a Abriendo
+                if(piso_actual = piso_deseado) then estado_siguiente <= Abriendo;
+                end if;
+            when Abriendo =>
+                -- De Abriendo a Espera
+                if (S_fin_carrera = '1' and S_ini_carrera = '0') then estado_siguiente <= Espera;
+                end if;
+            when Espera =>
+                -- De Espera a Espera
+                if (S_presencia = '1') then estado_siguiente <= Espera;
+                elsif(timer_done = '1' and S_fin_carrera = '1') then estado_siguiente <= Cerrando;
+                end if;
+            when Cerrando =>
+                -- De Cerrando a Abriendo
+                if(S_presencia = '1') then estado_siguiente <= Abriendo;
+                elsif(S_ini_carrera = '1') then estado_siguiente <= Reposo;
+                end if;
+        end case;
+             
         
     
     end process;
@@ -99,6 +159,8 @@ begin
     
     end process;
     ------------------------------------------------------------------------------------
+    
+    -- Falta la lógica para la modificacion de piso_actual, que no cambia por ahora
 
 
 end Behavioral;
