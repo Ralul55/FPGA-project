@@ -26,17 +26,16 @@ entity Piso_Decoder is
     port(
         clk           : in  std_logic;
         botones       : in  std_logic_vector(8 downto 1); -- [4 interiores | 4 exteriores]
-        piso_actual   : in  natural range 1 to 4;         -- para resetear requests
-        piso_deseado  : out natural range 1 to 4
+        piso_actual   : in  integer range 1 to 4;         -- para resetear requests
+        piso_deseado  : out integer range 1 to 4
     );
 end Piso_Decoder;
 
 architecture Behavioral of Piso_Decoder is
-    signal request_reg : natural range 1 to 4 := 0;
+    signal request_reg : integer range 0 to 4 := 0;
     signal prioridad   : std_logic := '0'; -- '1' = interior, '0' = exterior
 begin
-
-    piso_deseado <= request_reg;
+    piso_deseado <= piso_actual when request_reg = 0 else request_reg;
 
     process(clk)
     begin
