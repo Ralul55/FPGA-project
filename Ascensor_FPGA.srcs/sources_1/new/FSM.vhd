@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 21.12.2025 16:12:00
--- Design Name: 
--- Module Name: FSM - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -42,7 +21,8 @@ entity FSM is
         boton_i: IN std_logic_vector (4 downto 1);
         boton_e: IN std_logic_vector (4 downto 1);
         
-        LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0)
+        LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0); --se usara como salida indicativa
+        LEDS_PISOS : OUT std_logic_vector (3 downto 0) 
     );  
 end FSM;
 
@@ -50,7 +30,7 @@ architecture Behavioral of FSM is
 
     signal piso_actual  : integer range 1 to 4 := 1;
     signal piso_deseado : integer range 1 to 4 := 1;
-    signal botones_comb : std_logic_vector(8 downto 1);
+    --signal botones_comb : std_logic_vector(8 downto 1);
 
     type ESTADOS is (Reposo, Subiendo, Bajando, Abriendo, Cerrando, Espera);
     signal estado_actual : ESTADOS := Reposo;
@@ -64,17 +44,16 @@ architecture Behavioral of FSM is
 
 begin
     --------------------------------------------
-    botones_comb <= boton_i & boton_e;
     u_piso_decoder : entity work.Piso_Decoder
         port map(
             clk          => CLK,
-            botones      => botones_comb,
+            botones_i      => boton_i,
+            botones_e      => boton_e,
             piso_actual  => piso_actual,
             piso_deseado => piso_deseado
         );
     --------------------------------------------
-
-
+    
     --------------------------------------------
     -- Aquí se programará la acción del botón RESET (Activo a nivel bajo CREO)
     timer_y_registros: process (RESET, CLK)
@@ -151,16 +130,65 @@ begin
     end process;
     ------------------------------------------------------------------------------------
     
-    
     ------------------------------------------------------------------------------------
-    -- Aquí se programará el decodificador de la salida de los LED's
-    Leds_para_pisos: process(estado_actual)
+    -- Aquí se programará el decodificador de la salida de los LED's de los estado
+    Leds_para_estados: process(estado_actual)
     begin
-    
+    case estado_actual is
+        when Reposo =>
+               LEDS_INDICADORES_ESTADOS <= "000001";
+        when Subiendo =>
+               LEDS_INDICADORES_ESTADOS <= "000010";
+        when Bajando =>
+               LEDS_INDICADORES_ESTADOS <= "000100";
+        when Abriendo =>
+               LEDS_INDICADORES_ESTADOS <= "001000";
+        when Espera =>
+               LEDS_INDICADORES_ESTADOS <= "010000";
+        when Cerrando =>
+               LEDS_INDICADORES_ESTADOS <= "100000";
+        end case;
     end process;
     ------------------------------------------------------------------------------------
     
-    -- Falta la lógica para la modificacion de piso_actual, que no cambia por ahora
 
+
+    ------------------------------------------------------------------------------------
+    -- Aquí se programará el decodificador de la salida de los LED's de los pisos
+    
+    -- FALTA, CAMBIOS DE ESTADO CON TEMPORIZADOR O CON SENSOR
+    
+cambio_piso: process(clk, estado_actual)
+    begin
+        case estado_actual is
+            when  Subiendo =>
+                
+                
+            when Bajando =>
+                
+                        
+        end case;
+        
+    end process;
+
+    ------------------------------------------------------------------------------------
+
+
+    ------------------------------------------------------------------------------------
+    -- Aquí se programará el decodificador de la salida de los LED's de los pisos
+    Leds_para_pisos: process(piso_actual)
+    begin
+        case piso_actual is
+            when 1 =>
+               LEDS_PISOS <= "0001";
+            when 2 =>
+               LEDS_PISOS <= "0010";
+            when 3 =>
+               LEDS_PISOS <= "0100";
+            when 4 =>
+               LEDS_PISOS <= "1000";
+        end case;
+    end process;
+    
 
 end Behavioral;
