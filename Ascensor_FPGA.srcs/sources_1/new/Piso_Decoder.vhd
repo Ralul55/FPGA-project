@@ -22,7 +22,24 @@ begin
 
             -- Registrar un botón solo si no hay request pendiente
             if request_reg = 0 then
-                -- Revisar botones interiores (prioridad interna)
+            
+            -- Revisar exteriores
+            case botones_e(4 downto 1) is
+                when "0001" =>
+                        request_reg <= 1;
+                when "0010" =>
+                        request_reg <= 2;
+                when "0100" =>
+                        request_reg <= 3;
+                when "1000" =>
+                        request_reg <= 4;
+                when "0000" =>
+                        null; -- ningún botón exterior
+                when others =>
+                        null; -- combinaciones inválidas
+                end case;
+                
+                -- Revisar botones interiores (prioridad interna, ultima asignacion)
                 case botones_i(4 downto 1) is
                     when "0001" =>
                         request_reg <= 1;
@@ -35,24 +52,6 @@ begin
                     when others =>
                         null;
                 end case;
-
-                -- Si no hay botón interior activo, revisar exteriores
-                if request_reg = 0 then
-                    case botones_e(4 downto 1) is
-                        when "0001" =>
-                            request_reg <= 1;
-                        when "0010" =>
-                            request_reg <= 2;
-                        when "0100" =>
-                            request_reg <= 3;
-                        when "1000" =>
-                            request_reg <= 4;
-                        when "0000" =>
-                            null; -- ningún botón exterior
-                        when others =>
-                            null; -- combinaciones inválidas
-                    end case;
-                end if;
             end if;
 
             -- Reset de request al llegar al piso deseado
