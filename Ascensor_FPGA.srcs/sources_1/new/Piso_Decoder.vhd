@@ -20,7 +20,7 @@ begin
     process(clk, RESET)
     begin
         if RESET = '0' THEN 
-                 request_reg<=0;
+                 request_reg <= 0;
                  
         elsif rising_edge(clk) then
 
