@@ -1,5 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use std.env.all;
+
 
 entity piso_decoder_tb is
 end piso_decoder_tb;
@@ -187,8 +189,9 @@ begin
         piso_actual_sim <= 1; 
         
         TbSimEnded <= '1';
-        assert false report "FIN DE LA SIMULACION" severity failure;
-          
+        stop;      
+        wait;
+
         end process;
        
 end tb;

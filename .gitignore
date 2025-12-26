@@ -85,10 +85,5 @@
 !*.bmm
 !*.xmp
 vivado_23400.backup.jou
-vivado.jou
-Ascensor_FPGA.xpr
-Ascensor_FPGA.cache/wt/project.wpc
-vivado.jou
-Ascensor_FPGA.xpr
 /Ascensor_FPGA.cache/wt
 /Ascensor_FPGA.cache
