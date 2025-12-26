@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 21.12.2025 14:13:24
--- Design Name: 
--- Module Name: Ascensor - Structural
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -50,8 +29,13 @@ architecture Structural of Ascensor is
     
     signal boton_i_sinc : std_logic_vector(4 downto 1);
     signal boton_e_sinc : std_logic_vector(4 downto 1); 
+    
+    signal boton_i_edge : std_logic_vector(4 downto 1);
+    signal boton_e_edge : std_logic_vector(4 downto 1); 
      
 begin
+
+    -- debouncer --
 
     u_debouncer_boton_reset : entity work.debouncer
         port map(
@@ -74,7 +58,7 @@ begin
             BTN_OUT => boton_e_deb
         );
       
-      
+      -- sincro --
         
      u_sin_i_vec : entity work.sincro_vect
         port map (
@@ -83,11 +67,44 @@ begin
             SYNC_OUT => boton_i_sinc
         );
         
-      u_sin_e_vec : entity work.sincro_vect
+     u_sin_e_vec : entity work.sincro_vect
         port map (
             CLK => CLK, 
             ASYNC_IN => boton_e_deb, 
             SYNC_OUT => boton_e_sinc
         );
+        
+      -- detector de flanco --
+      
+      u_edge_i_vec : entity work.edge_detector_vect
+        port map (
+            CLK => CLK, 
+            SYNC_IN => boton_i_edge, 
+            EDGE => boton_i_edge
+        );
+        
+      u_edge_e_vec : entity work.edge_detector_vect
+        port map (
+            CLK => CLK, 
+            SYNC_IN => boton_e_edge, 
+            EDGE => boton_e_edge
+        );
+        
+       -- fsm --
+      u_fsm : entity work.fsm
+        port map (
+            RESET => RESET,
+            CLK => CLK,
+    
+            S_fin_carrera => S_fin_carrera,
+            S_ini_carrera => S_ini_carrera,
+            S_presencia => S_presencia,
+            boton_i => boton_i_edge,
+            boton_e => boton_e_edge,
+        
+            LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS,
+            LEDS_PISOS => LEDS_PISOS,
+            LEDS_DISPLAYS => LEDS_DISPLAYS
+         );
 
 end Structural;
