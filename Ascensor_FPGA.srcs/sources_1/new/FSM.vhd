@@ -28,8 +28,8 @@ end FSM;
 
 architecture Behavioral of FSM is
 
-    signal piso_actual  : integer range 1 to 4 := 1;
-    signal piso_deseado : integer range 1 to 4 := 1;
+    signal piso_actual  : integer range 0 to 4 := 1;
+    signal piso_deseado : integer range 0 to 4 := 0;
     --signal botones_comb : std_logic_vector(8 downto 1);
 
     type ESTADOS is (Reposo, Subiendo, Bajando, Abriendo, Cerrando, Espera);
@@ -46,6 +46,7 @@ begin
     --------------------------------------------
     u_piso_decoder : entity work.Piso_Decoder
         port map(
+            RESET       =>RESET,
             clk          => CLK,
             botones_i      => boton_i,
             botones_e      => boton_e,
@@ -55,16 +56,16 @@ begin
     --------------------------------------------
     
     --------------------------------------------
-    -- Aquí se programará la acción del botón RESET (Activo a nivel bajo CREO)
+    -- Aquí se programará la acción del botón RESET (Activo a nivel bajo)
     timer_y_registros: process (RESET, CLK)
         begin
             if RESET = '0' THEN 
                  estado_actual <= Reposo;
                  timer_cnt  <= 0;
                  timer_done <= '0';
+                 piso_actual<=1;
             elsif rising_edge(CLK) THEN
                  estado_actual <= estado_siguiente; -- Actualizacion Estado
-                 
                 if estado_actual = Espera then
                     if S_presencia = '1' then
                         timer_cnt  <= 0;        -- alguien presente
@@ -94,12 +95,15 @@ begin
         estado_siguiente <= estado_actual;
         case estado_actual is
             when Reposo =>
+                if piso_deseado /= 0 then
+
                 -- De Reposo a Subiendo
                 if (piso_actual < piso_deseado) then estado_siguiente <= Subiendo;
                 -- De Reposo a Bajando
                 elsif(piso_actual > piso_deseado) then estado_siguiente <= Bajando;
                 -- De Reposo a Abriendo
                 elsif(piso_actual = piso_deseado) then estado_siguiente <= Abriendo;
+                end if;
                 end if;
             when Subiendo =>
                 -- De Subiendo a Abriendo
@@ -147,6 +151,9 @@ begin
                LEDS_INDICADORES_ESTADOS <= "010000";
         when Cerrando =>
                LEDS_INDICADORES_ESTADOS <= "100000";
+        when others =>
+               LEDS_INDICADORES_ESTADOS <= (others => '0');
+
         end case;
     end process;
     ------------------------------------------------------------------------------------
@@ -158,18 +165,18 @@ begin
     
     -- FALTA, CAMBIOS DE ESTADO CON TEMPORIZADOR O CON SENSOR
     
-cambio_piso: process(clk, estado_actual)
-    begin
-        case estado_actual is
-            when  Subiendo =>
+--cambio_piso: process(clk, estado_actual)
+--    begin
+--        case estado_actual is
+--            when  Subiendo =>
                 
                 
-            when Bajando =>
+--            when Bajando =>
                 
                         
-        end case;
+--        end case;
         
-    end process;
+--    end process;
 
     ------------------------------------------------------------------------------------
 
@@ -187,6 +194,8 @@ cambio_piso: process(clk, estado_actual)
                LEDS_PISOS <= "0100";
             when 4 =>
                LEDS_PISOS <= "1000";
+            when others =>
+               LEDS_PISOS <= (others => '0');
         end case;
     end process;
     
