@@ -2,6 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use std.env.all;
 
+-- EN ESTA SIMULACION SE COMPRUEBA EL CORRECTO FUNCIONAMIENTO DE:
+            --ESTABLECIMIENTO DE PISO DESEADO
+            --QUE NO SE PUEDA ESCOGER OTRO PISO MIENTRAS SE LLEGA AL DESEADO
+            --PRIORIDAD DE BOTONES INTERIORES
 
 entity piso_decoder_tb is
 end piso_decoder_tb;
@@ -10,19 +14,20 @@ architecture tb of piso_decoder_tb is
 
     component Piso_Decoder
         port (
+            RESET        : in  std_logic;
             clk          : in  std_logic;
             botones_i    : in  std_logic_vector (4 downto 1);
             botones_e    : in  std_logic_vector (4 downto 1);
-            piso_actual  : in  integer range 1 to 4;
-            piso_deseado : out integer range 1 to 4
+            piso_actual  : in  integer range 0 to 4;
+            piso_deseado : out integer range 0 to 4
         );
     end component;
-
+    signal RESET          : std_logic := '1';
     signal clk_sim          : std_logic := '0';
     signal botones_i_sim    : std_logic_vector (4 downto 1) := (others => '0');
     signal botones_e_sim    : std_logic_vector (4 downto 1) := (others => '0');
-    signal piso_actual_sim  : integer range 1 to 4 := 1;
-    signal piso_deseado_sim : integer range 1 to 4;
+    signal piso_actual_sim  : integer range 0 to 4 := 1;
+    signal piso_deseado_sim : integer range 0 to 4;
 
     -- 100 MHz -> 10 ns
     constant TbPeriod  : time := 10 ns;
@@ -41,6 +46,7 @@ begin
 
     dut : Piso_Decoder
         port map (
+            RESET       =>RESET,
             clk          => clk_sim,
             botones_i    => botones_i_sim,
             botones_e    => botones_e_sim,
@@ -63,6 +69,47 @@ begin
 
         -- 1 ciclo de espera
         flanco(1);
+--------------------------------------------------------------------
+        -- RESET (Activo a nivel bajo)
+--------------------------------------------------------------------    
+        
+        --se pulsa el boton 1, para pasar a estado abriendo 
+        botones_e_sim <= "0001";
+        flanco(1);
+        botones_e_sim <= (others => '0');
+        
+        --se pulsa reset 
+
+        flanco(2);
+        RESET <= '0';
+        flanco(1);
+        RESET <= '1';
+        
+        
+        --se pulsa el boton 4, para pasar a estado subiendo 
+        flanco(2);
+        botones_e_sim <= "1000";
+        flanco(1);
+        botones_e_sim <= (others => '0');
+        
+        
+        --se pulsa reset 
+
+        flanco(2);
+        RESET <= '0';
+        
+ 
+        --se pulsa el boton 4, manteniendo la señal de reset
+        flanco(2);
+        botones_e_sim <= "1000";
+        flanco(1);
+        botones_e_sim <= (others => '0');
+        
+        flanco(2);
+        RESET <= '1';
+--------------------------------------------------------------------
+        -- ESTABLECIMIENTO DE PISO DESEADO
+--------------------------------------------------------------------
 
         --se pide el boton 2
         botones_i_sim <= "0010";
@@ -104,6 +151,8 @@ begin
         
         
  -------------------------------------------------------
+        --QUE NO SE PUEDA ESCOGER OTRO PISO MIENTRAS SE LLEGA AL DESEADO
+        
         --se realizara secuencia similar ahora pulsando botones para comprobar que no afecta en el piso deseado
         --siempre se respetan los tiempos establecidos (1 flanco para boton, 2 flancos para modificar el piso)
  --------------------------------------------------------
@@ -160,7 +209,7 @@ begin
         piso_actual_sim <= 1; 
         
 -------------------------------------------------------
-        --se comprobara que ante peticion simultanea se escuha al boton interior
+        --PRIORIDAD DE BOTONES INTERIORES
  --------------------------------------------------------
         
         --se pide el boton 2 interior y el 3 exterior
@@ -186,8 +235,11 @@ begin
         botones_e_sim <= (others => '0');
         
         flanco(2);
-        piso_actual_sim <= 1; 
+        piso_actual_sim <= 1; --no se llega a mostrar en la simulacion, necesitaria un flanco de espera
         
+--------------------------------------------------------------------
+        -- Final de la simulacion
+--------------------------------------------------------------------  
         TbSimEnded <= '1';
         stop;      
         wait;
