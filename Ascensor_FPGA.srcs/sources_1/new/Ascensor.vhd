@@ -47,6 +47,9 @@ architecture Structural of Ascensor is
     signal boton_i_deb : std_logic_vector(4 downto 1);
     signal boton_e_deb : std_logic_vector(4 downto 1);
     signal boton_reset_deb : std_logic;
+    
+    signal boton_i_sinc : std_logic_vector(4 downto 1);
+    signal boton_e_sinc : std_logic_vector(4 downto 1); 
      
 begin
 
@@ -69,6 +72,22 @@ begin
             CLK => CLK, 
             BTN_IN => boton_e, 
             BTN_OUT => boton_e_deb
+        );
+      
+      
+        
+     u_sin_i_vec : entity work.sincro_vect
+        port map (
+            CLK => CLK, 
+            ASYNC_IN => boton_i_deb, 
+            SYNC_OUT => boton_i_sinc
+        );
+        
+      u_sin_e_vec : entity work.sincro_vect
+        port map (
+            CLK => CLK, 
+            ASYNC_IN => boton_e_deb, 
+            SYNC_OUT => boton_e_sinc
         );
 
 end Structural;
