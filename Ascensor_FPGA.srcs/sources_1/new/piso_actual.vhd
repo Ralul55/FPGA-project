@@ -27,7 +27,9 @@ architecture Behavioral of piso_actual is
     -- temporizador pisos --
     constant TIEMPO_POR_PISO : integer := 2;      -- segundos
     constant MAX_COUNT_PISO : integer := CLK_FREQ * TIEMPO_POR_PISO;
-    signal timer_cnt_piso  : integer range 0 to MAX_COUNT_PISO -1 := 0;
+    --constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
+
+    signal timer_cnt_piso  : integer range 0 to MAX_COUNT_PISO := 0;
     
 begin
 
