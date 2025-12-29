@@ -18,19 +18,18 @@ entity FSM is
         S_fin_carrera: IN std_logic;
         S_ini_carrera: IN std_logic;
         S_presencia: IN std_logic;
-        boton_i: IN std_logic_vector (4 downto 1);
-        boton_e: IN std_logic_vector (4 downto 1);
         
-        LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0); --se usara como salida indicativa
-        LEDS_PISOS : OUT std_logic_vector (3 downto 0);
-        LEDS_DISPLAYS : OUT std_logic_vector(6 DOWNTO 0)  --bcd
+        piso_actual  : IN  integer range 0 to 4;
+        piso_deseado : IN integer range 0 to 4;
+        
+        LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0) --se usara como salida indicativa
     );  
 end FSM;
 
 architecture Behavioral of FSM is
 
-    signal piso_actual  : integer range 0 to 4 := 1;
-    signal piso_deseado : integer range 0 to 4 := 0;
+    --signal piso_actual  : integer range 0 to 4 := 1;
+    --signal piso_deseado : integer range 0 to 4 := 0;
     --signal botones_comb : std_logic_vector(8 downto 1);
 
     type ESTADOS is (Reposo, Subiendo, Bajando, Abriendo, Cerrando, Espera);
@@ -45,31 +44,8 @@ architecture Behavioral of FSM is
     signal timer_cnt_espera  : integer range 0 to MAX_COUNT_ESPERA -1 := 0;
     signal timer_done_espera : std_logic := '0';
     
-    -- temporizador pisos --
-    constant TIEMPO_POR_PISO : integer := 2;      -- segundos
-    constant MAX_COUNT_PISO : integer := CLK_FREQ * TIEMPO_POR_PISO;
-    signal timer_cnt_piso  : integer range 0 to MAX_COUNT_PISO -1 := 0;
-    
 begin
-    --------------------------------------------
-    u_piso_decoder : entity work.Piso_Decoder
-        port map(
-            RESET       =>RESET,
-            clk          => CLK,
-            botones_i      => boton_i,
-            botones_e      => boton_e,
-            piso_actual  => piso_actual,
-            piso_deseado => piso_deseado
-        );
-    --------------------------------------------
-    
-    u_decoder_display : entity work.decoder_display
-        port map(
-            code => piso_actual,
-            led => LEDS_DISPLAYS  
-        );
-    
-    --------------------------------------------
+ 
     -- Aquí se programará la acción del botón RESET (Activo a nivel bajo)
     timer_y_registros: process (RESET, CLK)
         begin
@@ -77,8 +53,8 @@ begin
                  estado_actual <= Reposo;
                  timer_cnt_espera  <= 0;
                  timer_done_espera <= '0';
-                 piso_actual <= 1;
-                 timer_cnt_piso <= 0;
+                 --piso_actual <= 1;
+                 --timer_cnt_piso <= 0;
                  
             elsif rising_edge(CLK) THEN
                  estado_actual <= estado_siguiente; -- Actualizacion Estado
@@ -102,7 +78,6 @@ begin
             
     end process;
     --------------------------------------------
-    
   
     ------------------------------------------------------------------------------------
     -- Aquí se programará transición entre estados
@@ -174,67 +149,4 @@ begin
     end process;
     ------------------------------------------------------------------------------------
     
-
-
-    ------------------------------------------------------------------------------------
-    -- Aquí se programará el decodificador de la salida de los LED's de los pisos
-    
-    -- FALTA, CAMBIOS DE ESTADO CON TEMPORIZADOR O CON SENSOR
-    
-    cambio_piso: process(CLK)
-        begin
-            if rising_edge(CLK) then
-                case estado_actual is
-                    when Subiendo =>
-                        if piso_actual < piso_deseado then 
-                            if timer_cnt_piso = MAX_COUNT_PISO -1 then 
-                                timer_cnt_piso <= 0;
-                                piso_actual <= piso_actual +1;
-                            else 
-                                timer_cnt_piso <=  timer_cnt_piso +1;
-                            end if;
-                        else
-                            timer_cnt_piso <= 0;
-                        end if;
-                
-                    when Bajando =>
-                        if piso_actual > piso_deseado then 
-                            if timer_cnt_piso = MAX_COUNT_PISO -1 then 
-                                timer_cnt_piso <= 0;
-                                piso_actual <= piso_actual -1;
-                            else 
-                                timer_cnt_piso <=  timer_cnt_piso +1;
-                            end if;
-                        else
-                            timer_cnt_piso <= 0;
-                        end if;                
-                        
-                     when others =>
-                        timer_cnt_piso <= 0;
-                end case;
-            end if;    
-     end process;
-
-    ------------------------------------------------------------------------------------
-
-
-    ------------------------------------------------------------------------------------
-    -- Aquí se programará el decodificador de la salida de los LED's de los pisos
-    Leds_para_pisos: process(piso_actual)
-    begin
-        case piso_actual is
-            when 1 =>
-               LEDS_PISOS <= "0001";
-            when 2 =>
-               LEDS_PISOS <= "0010";
-            when 3 =>
-               LEDS_PISOS <= "0100";
-            when 4 =>
-               LEDS_PISOS <= "1000";
-            when others =>
-               LEDS_PISOS <= (others => '0');
-        end case;
-    end process;
-    
-
 end Behavioral;

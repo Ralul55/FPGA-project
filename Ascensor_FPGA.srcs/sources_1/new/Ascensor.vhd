@@ -32,6 +32,10 @@ architecture Structural of Ascensor is
     
     signal boton_i_edge : std_logic_vector(4 downto 1);
     signal boton_e_edge : std_logic_vector(4 downto 1); 
+    
+    signal piso_actual  : integer range 0 to 4;
+    signal piso_deseado : integer range 0 to 4 ;
+    signal estado_actual : std_logic_vector (5 downto 0);
      
 begin
 
@@ -99,10 +103,34 @@ begin
             S_fin_carrera => S_fin_carrera,
             S_ini_carrera => S_ini_carrera,
             S_presencia => S_presencia,
+            
+            piso_actual =>piso_actual,
+            piso_deseado=>piso_deseado,
+        
+            LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS
+            
+         );
+         
+         -- piso actual --
+        u_piso_actual : entity work.piso_actual
+        port map (
+            RESET => RESET,
+            CLK => CLK,
+    
             boton_i => boton_i_edge,
             boton_e => boton_e_edge,
-        
-            LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS,
+            
+            estado_actual=>estado_actual,
+            
+            piso_act =>piso_actual,
+            piso_des=>piso_deseado
+         );
+         
+         -- actuadores del piso  --
+      u_actuadores : entity work.actuadores
+        port map (
+            piso_actual=>piso_actual,
+            
             LEDS_PISOS => LEDS_PISOS,
             LEDS_DISPLAYS => LEDS_DISPLAYS
          );

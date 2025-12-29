@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Fri Dec 26 18:40:02 2025
-# Process ID: 20084
+# Start of session at: Mon Dec 29 10:33:49 2025
+# Process ID: 11196
 # Current directory: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23040 C:\Users\ainar\OneDrive\Escritorio\trabajo_fpga\FPGA-project\Ascensor_FPGA.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18220 C:\Users\ainar\OneDrive\Escritorio\trabajo_fpga\FPGA-project\Ascensor_FPGA.xpr
 # Log file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/vivado.log
 # Journal file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project\vivado.jou
 # Running On        :PortatilAinara
@@ -19,124 +19,19 @@
 # Host memory       :17023 MB
 # Swap memory       :5637 MB
 # Total Virtual     :22660 MB
-# Available Virtual :11548 MB
+# Available Virtual :12992 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-launch_simulation
-source FSM_tb.tcl
-close_sim
-launch_simulation
-source FSM_tb.tcl
-close_sim
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top cfg_piso_decoder_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-launch_simulation
-source cfg_piso_decoder_tb.tcl
-save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg}
-add_files -fileset sim_1 -norecurse C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-set_property xsim.view C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg [get_filesets sim_1]
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source cfg_piso_decoder_tb.tcl
-close_sim
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top FSM_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top cfg_piso_decoder_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source cfg_piso_decoder_tb.tcl
-close_sim
-# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
-set_property source_mgmt_mode None [current_project]
-set_property top FSM_tb [get_filesets sim_1]
-set_property top_lib xil_defaultlib [get_filesets sim_1]
-# Re-enabling previously disabled source management mode.
-set_property source_mgmt_mode All [current_project]
-update_compile_order -fileset sim_1
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/simulacion_piso_decoder.wcfg
-source FSM_tb.tcl
-close_sim
-launch_simulation
-source FSM_tb.tcl
-close_sim
+close [ open C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/piso_actual.vhd w ]
+add_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/piso_actual.vhd
+close [ open C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/actuadores.vhd w ]
+add_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/actuadores.vhd
+update_compile_order -fileset sources_1
+close [ open C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/actuadores.vhd w ]
+add_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/actuadores.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
