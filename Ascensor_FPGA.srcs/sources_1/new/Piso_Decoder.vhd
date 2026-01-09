@@ -29,15 +29,15 @@ begin
             
             -- Revisar exteriores
             case botones_e(4 downto 1) is
-                when "0001" =>
+                when "1110" =>
                         request_reg <= 1;
-                when "0010" =>
+                when "1101" =>
                         request_reg <= 2;
-                when "0100" =>
+                when "1011" =>
                         request_reg <= 3;
-                when "1000" =>
+                when "0111" =>
                         request_reg <= 4;
-                when "0000" =>
+                when "1111" =>
                         null; -- ningún botón exterior
                 when others =>
                         null; -- combinaciones inválidas
@@ -45,13 +45,13 @@ begin
                 
                 -- Revisar botones interiores (prioridad interna, ultima asignacion)
                 case botones_i(4 downto 1) is
-                    when "0001" =>
+                    when "1110" =>
                         request_reg <= 1;
-                    when "0010" =>
+                    when "1101" =>
                         request_reg <= 2;
-                    when "0100" =>
+                    when "1011" =>
                         request_reg <= 3;
-                    when "1000" =>
+                    when "0111" =>
                         request_reg <= 4;
                     when others =>
                         null;

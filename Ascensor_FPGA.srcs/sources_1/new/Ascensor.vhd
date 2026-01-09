@@ -18,7 +18,7 @@ entity Ascensor is
         LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0); --se usara como salida indicativa
         
         LEDS_PISOS : OUT std_logic_vector (3 downto 0);
-        
+        LEDS_PISO_deseado: OUT std_logic_vector (3 downto 0);
         CNTRL_DISPLAY : OUT std_logic_vector(6 DOWNTO 0);
         LEDS_DISPLAYS : OUT std_logic_vector(6 DOWNTO 0)  --bcd
         
@@ -87,14 +87,14 @@ begin
       u_edge_i_vec : entity work.edge_detector_vect
         port map (
             CLK => CLK, 
-            SYNC_IN => boton_i_edge, 
+            SYNC_IN => boton_i_sinc, 
             EDGE => boton_i_edge
         );
         
       u_edge_e_vec : entity work.edge_detector_vect
         port map (
             CLK => CLK, 
-            SYNC_IN => boton_e_edge, 
+            SYNC_IN => boton_e_sinc, 
             EDGE => boton_e_edge
         );
         
@@ -134,8 +134,10 @@ begin
       u_actuadores : entity work.actuadores
         port map (
             piso_actual=>piso_actual,
+            piso_deseado=>piso_deseado,
             
             LEDS_PISOS => LEDS_PISOS,
+            LEDS_PISO_deseado => LEDS_PISO_deseado,
             
             CNTRL_DISPLAY => CNTRL_DISPLAY,
             LEDS_DISPLAYS => LEDS_DISPLAYS

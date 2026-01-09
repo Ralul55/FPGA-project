@@ -22,6 +22,7 @@ entity FSM is
         piso_actual  : IN  integer range 0 to 4;
         piso_deseado : IN integer range 0 to 4;
         
+        
         LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0) --se usara como salida indicativa
     );  
 end FSM;
