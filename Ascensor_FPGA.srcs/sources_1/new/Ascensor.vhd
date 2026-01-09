@@ -8,14 +8,18 @@ entity Ascensor is
         RESET: IN std_logic;
         CLK: IN std_logic;
     
-        S_fin_carrera: IN std_logic;
+        S_fin_carrera: IN std_logic; -- Implementado con los switches de la FPGA
         S_ini_carrera: IN std_logic;
         S_presencia: IN std_logic;
+        
         boton_i: IN std_logic_vector (4 downto 1);
         boton_e: IN std_logic_vector (4 downto 1);
         
         LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0); --se usara como salida indicativa
+        
         LEDS_PISOS : OUT std_logic_vector (3 downto 0);
+        
+        CNTRL_DISPLAY : OUT std_logic_vector(6 DOWNTO 0);
         LEDS_DISPLAYS : OUT std_logic_vector(6 DOWNTO 0)  --bcd
         
     );
@@ -132,7 +136,15 @@ begin
             piso_actual=>piso_actual,
             
             LEDS_PISOS => LEDS_PISOS,
+            
+            CNTRL_DISPLAY => CNTRL_DISPLAY,
             LEDS_DISPLAYS => LEDS_DISPLAYS
          );
+         
+         
+         
+         
+         
+ 
 
 end Structural;

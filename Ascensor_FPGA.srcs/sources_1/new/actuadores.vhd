@@ -7,6 +7,8 @@ entity actuadores is
         piso_actual  : IN integer range 0 to 4;
     
         LEDS_PISOS : OUT std_logic_vector (3 downto 0);
+        
+        CNTRL_DISPLAY : OUT std_logic_vector(6 DOWNTO 0);
         LEDS_DISPLAYS : OUT std_logic_vector(6 DOWNTO 0)  --bcd
     );
 end actuadores;
@@ -38,5 +40,11 @@ begin
             when others =>
                LEDS_PISOS <= (others => '0');
         end case;
+        
+    -- Apagar todos
+    
+    for i in 0 to 6 loop
+        CNTRL_DISPLAY(i) <= '1';
+    end loop;
     end process;
 end Behavioral;

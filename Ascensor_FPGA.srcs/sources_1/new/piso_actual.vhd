@@ -53,7 +53,7 @@ begin
     
     cambio_piso: process(CLK, RESET)
         begin
-            if (RESET) then
+            if (RESET = '0') then
                 piso_actual <= 1;
                 timer_cnt_piso <= 0;
             elsif rising_edge(CLK) then
