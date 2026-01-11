@@ -20,7 +20,7 @@ begin
     process(clk, RESET)
     begin
         if RESET = '0' THEN 
-                 request_reg <= 0;
+                 request_reg <= 0; 
                  
         elsif rising_edge(clk) then
 
@@ -28,41 +28,35 @@ begin
             if request_reg = 0 then
             
             -- Revisar exteriores
-            case botones_e(4 downto 1) is
-                when "1110" =>
-                        request_reg <= 1;
-                when "1101" =>
-                        request_reg <= 2;
-                when "1011" =>
-                        request_reg <= 3;
-                when "0111" =>
-                        request_reg <= 4;
-                when "1111" =>
-                        null; -- ningún botón exterior
-                when others =>
-                        null; -- combinaciones inválidas
-                end case;
-                
-                -- Revisar botones interiores (prioridad interna, ultima asignacion)
-                case botones_i(4 downto 1) is
-                    when "1110" =>
-                        request_reg <= 1;
-                    when "1101" =>
-                        request_reg <= 2;
-                    when "1011" =>
-                        request_reg <= 3;
-                    when "0111" =>
-                        request_reg <= 4;
-                    when others =>
-                        null;
-                end case;
+            -- Interiores (prioridad sobre exteriores)
+            if botones_i(1) = '1' then
+                request_reg <= 1;
+            elsif botones_i(2) = '1' then
+                request_reg <= 2;
+            elsif botones_i(3) = '1' then
+                request_reg <= 3;
+            elsif botones_i(4) = '1' then
+                request_reg <= 4;
             end if;
+            
+            -- Exteriores
+            if botones_e(1) = '1' then
+                request_reg <= 1;
+            elsif botones_e(2) = '1' then
+                request_reg <= 2; 
+            elsif botones_e(3) = '1' then
+                request_reg <= 3;
+            elsif botones_e(4) = '1' then
+                request_reg <= 4;
+            end if;
+
             -- Reset de request al llegar al piso deseado
             if piso_actual = request_reg and request_reg /= 0 then
                 request_reg <= 0;
             end if;
-
-        end if;
+            
+            end if;
+            end if;
         
         -- Este código permite que se ignore un boton que se pulse despues de otro que establezca algún piso deseado
         -- La prioridad del bitin pulsado antes permanece hasta que se llegue al piso deseado

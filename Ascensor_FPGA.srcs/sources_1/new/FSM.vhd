@@ -22,7 +22,7 @@ entity FSM is
         piso_actual  : IN  integer range 0 to 4;
         piso_deseado : IN integer range 0 to 4;
         
-        
+        estado_actual: OUT std_logic_vector(5 DOWNTO 0);
         LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0) --se usara como salida indicativa
     );  
 end FSM;
@@ -34,7 +34,7 @@ architecture Behavioral of FSM is
     --signal botones_comb : std_logic_vector(8 downto 1);
 
     type ESTADOS is (Reposo, Subiendo, Bajando, Abriendo, Cerrando, Espera);
-    signal estado_actual : ESTADOS := Reposo;
+    signal senial_estado_actual : ESTADOS := Reposo;
     signal estado_siguiente : ESTADOS;
     
     constant CLK_FREQ      : integer := 100000000; -- 100 MHz
@@ -53,15 +53,15 @@ begin
     timer_y_registros: process (RESET, CLK)
         begin
             if RESET = '0' THEN 
-                 estado_actual <= Reposo;
+                 senial_estado_actual <= Reposo;
                  timer_cnt_espera  <= 0;
                  timer_done_espera <= '0';
                  --piso_actual <= 1;
                  --timer_cnt_piso <= 0;
                  
             elsif rising_edge(CLK) THEN
-                 estado_actual <= estado_siguiente; -- Actualizacion Estado
-                if estado_actual = Espera then
+                 senial_estado_actual <= estado_siguiente; -- Actualizacion Estado
+                if senial_estado_actual = Espera then
                     if S_presencia = '1' then
                         timer_cnt_espera  <= 0;        -- alguien presente
                         timer_done_espera <= '0';
@@ -84,10 +84,10 @@ begin
   
     ------------------------------------------------------------------------------------
     -- Aquí se programará transición entre estados
-    cambio_estados: process(estado_actual, S_fin_carrera, S_ini_carrera, S_presencia, piso_deseado, piso_actual, timer_done_espera)
+    cambio_estados: process(senial_estado_actual, S_fin_carrera, S_ini_carrera, S_presencia, piso_deseado, piso_actual, timer_done_espera)
     begin
-        estado_siguiente <= estado_actual;
-        case estado_actual is
+        estado_siguiente <= senial_estado_actual;
+        case senial_estado_actual is
             when Reposo =>
                 if piso_deseado /= 0 then
 
@@ -130,21 +130,27 @@ begin
     
     ------------------------------------------------------------------------------------
     -- Aquí se programará el decodificador de la salida de los LED's de los estado
-    Leds_para_estados: process(estado_actual)
+    Leds_para_estados: process(senial_estado_actual)
     begin
-    case estado_actual is
+    case senial_estado_actual is
         when Reposo =>
-               LEDS_INDICADORES_ESTADOS <= "000001";
+                estado_actual <= "000001";
+                LEDS_INDICADORES_ESTADOS <= "000001";
         when Subiendo =>
-               LEDS_INDICADORES_ESTADOS <= "000010";
+                estado_actual <= "000010";
+                LEDS_INDICADORES_ESTADOS <= "000010";
         when Bajando =>
-               LEDS_INDICADORES_ESTADOS <= "000100";
+                estado_actual <= "000100";
+                LEDS_INDICADORES_ESTADOS <= "000100";
         when Abriendo =>
-               LEDS_INDICADORES_ESTADOS <= "001000";
+                estado_actual <= "001000";
+                LEDS_INDICADORES_ESTADOS <= "001000";
         when Espera =>
-               LEDS_INDICADORES_ESTADOS <= "010000";
+                estado_actual <= "010000";
+                LEDS_INDICADORES_ESTADOS <= "010000";
         when Cerrando =>
-               LEDS_INDICADORES_ESTADOS <= "100000";
+                estado_actual <= "100000";
+                LEDS_INDICADORES_ESTADOS <= "100000";
         when others =>
                LEDS_INDICADORES_ESTADOS <= (others => '0');
 

@@ -101,7 +101,7 @@ begin
        -- fsm --
       u_fsm : entity work.fsm
         port map (
-            RESET => RESET,
+            RESET => boton_reset_deb,
             CLK => CLK,
     
             S_fin_carrera => S_fin_carrera,
@@ -110,7 +110,9 @@ begin
             
             piso_actual =>piso_actual,
             piso_deseado=>piso_deseado,
-        
+            
+            
+            estado_actual => estado_actual,
             LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS
             
          );
@@ -118,7 +120,7 @@ begin
          -- piso actual --
         u_piso_actual : entity work.piso_actual
         port map (
-            RESET => RESET,
+            RESET => boton_reset_deb,
             CLK => CLK,
     
             boton_i => boton_i_edge,
