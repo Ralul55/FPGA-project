@@ -31,7 +31,9 @@ architecture tb of FSM_tb is
               S_presencia              : in std_logic;
               piso_actual  : IN  integer range 0 to 4;
               piso_deseado : IN integer range 0 to 4;
-              LEDS_INDICADORES_ESTADOS : out std_logic_vector (5 downto 0) );
+              estado_actual : OUT std_logic_vector (5 downto 0);
+              LEDS_INDICADORES_ESTADOS : out std_logic_vector (5 downto 0) 
+              );
     end component;
 
     signal RESET                    : std_logic:= '1';
@@ -42,6 +44,7 @@ architecture tb of FSM_tb is
     signal piso_actual  : integer range 0 to 4 := 1;
     signal piso_deseado : integer range 0 to 4 := 0;
     signal LEDS_INDICADORES_ESTADOS : std_logic_vector (5 downto 0);
+    signal estado_actual : std_logic_vector (5 downto 0);
 
     -- 100 MHz -> 10 ns
     constant TbPeriod  : time := 10 ns;
@@ -66,6 +69,7 @@ begin
               S_presencia              => S_presencia,
               piso_actual              => piso_actual,
               piso_deseado             => piso_deseado,
+              estado_actual => estado_actual,
               LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS);
 
  -- Clock generation

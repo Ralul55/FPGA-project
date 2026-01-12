@@ -6,6 +6,8 @@ use std.env.all;
             --ESTABLECIMIENTO DE PISO DESEADO
             --QUE NO SE PUEDA ESCOGER OTRO PISO MIENTRAS SE LLEGA AL DESEADO
             --PRIORIDAD DE BOTONES INTERIORES
+            
+-- b:piso 4, c: piso 3, d: piso 2, e:piso 1, f: ninguno marcado
 
 entity piso_decoder_tb is
 end piso_decoder_tb;
@@ -22,10 +24,10 @@ architecture tb of piso_decoder_tb is
             piso_deseado : out integer range 0 to 4
         );
     end component;
-    signal RESET          : std_logic := '1';
+    signal RESET            : std_logic := '1';
     signal clk_sim          : std_logic := '0';
-    signal botones_i_sim    : std_logic_vector (4 downto 1) := (others => '0');
-    signal botones_e_sim    : std_logic_vector (4 downto 1) := (others => '0');
+    signal botones_i_sim    : std_logic_vector (4 downto 1) := (others => '1');
+    signal botones_e_sim    : std_logic_vector (4 downto 1) := (others => '1');
     signal piso_actual_sim  : integer range 0 to 4 := 1;
     signal piso_deseado_sim : integer range 0 to 4;
 
@@ -46,7 +48,7 @@ begin
 
     dut : Piso_Decoder
         port map (
-            RESET       =>RESET,
+            RESET        => RESET,
             clk          => clk_sim,
             botones_i    => botones_i_sim,
             botones_e    => botones_e_sim,
@@ -56,15 +58,15 @@ begin
 
     -- Clock generation
     TbClock <= not TbClock after TbPeriod/2 when TbSimEnded /= '1' else '0';
-    clk_sim     <= TbClock;
+    clk_sim <= TbClock;
 
     stimuli : process
     begin
         --------------------------------------------------------------------
         -- Se inicializan variables
         --------------------------------------------------------------------
-        botones_i_sim   <= (others => '0');
-        botones_e_sim   <= (others => '0');
+        botones_i_sim   <= (others => '1');
+        botones_e_sim   <= (others => '1');
         piso_actual_sim <= 1; --siempre establecido a 1 por defecto
 
         -- 1 ciclo de espera
@@ -74,9 +76,9 @@ begin
 --------------------------------------------------------------------    
         
         --se pulsa el boton 1, para pasar a estado abriendo 
-        botones_e_sim <= "0001";
+        botones_e_sim <= "1110";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         --se pulsa reset 
 
@@ -88,9 +90,9 @@ begin
         
         --se pulsa el boton 4, para pasar a estado subiendo 
         flanco(2);
-        botones_e_sim <= "1000";
+        botones_e_sim <= "0111";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         
         --se pulsa reset 
@@ -101,9 +103,9 @@ begin
  
         --se pulsa el boton 4, manteniendo la señal de reset
         flanco(2);
-        botones_e_sim <= "1000";
+        botones_e_sim <= "0111";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         flanco(2);
         RESET <= '1';
@@ -112,9 +114,9 @@ begin
 --------------------------------------------------------------------
 
         --se pide el boton 2
-        botones_i_sim <= "0010";
+        botones_i_sim <= "1101";
         flanco(1);
-        botones_i_sim <= (others => '0');
+        botones_i_sim <= (others => '1');
         
         --el piso_actual se modificara de forma artificial cada 2 flancos para comrpobar simulacion
         
@@ -124,9 +126,9 @@ begin
         
         --se pide el boton 4
         flanco(2);
-        botones_e_sim <= "1000";
+        botones_e_sim <= "0111";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         --sube dos pisos
         flanco(2);
@@ -137,9 +139,9 @@ begin
         
         --se pide el boton 1
         flanco(2);
-        botones_e_sim <= "0001";
+        botones_e_sim <= "1110";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         --sube tres pisos
         flanco(2);
@@ -159,51 +161,51 @@ begin
         
         --se pide el boton 1
         flanco(2);
-        botones_e_sim <= "0001";
+        botones_e_sim <= "1110";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         --se pide otro boton 
-        botones_i_sim <= "0010";
+        botones_i_sim <= "1101";
         flanco(1);
-        botones_i_sim <= (others => '0');
+        botones_i_sim <= (others => '1');
         --NO SE DEBERIA MOVER YA QUE POR SER LLAMADO EL BOTON PASA 2 FLANCOS EN EL PISO 1, AUNQUE YA ESTE AHI
         
         
          --se pide el boton 3
-        flanco(2);
-        botones_e_sim <= "0100";
+        flanco(3);
+        botones_e_sim <= "1011";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         
         --sube dos pisos
         flanco(1);
         --se pide otro boton 
-        botones_i_sim <= "0010";
+        botones_i_sim <= "1101";
         flanco(1);
-        botones_i_sim <= (others => '0');
+        botones_i_sim <= (others => '1');
         
         piso_actual_sim <= 2; 
         flanco(1);
         --se pide otro boton 
-        botones_i_sim <= "0001";
+        botones_i_sim <= "1110";
         flanco(1);
-        botones_i_sim <= (others => '0');
+        botones_i_sim <= (others => '1');
         
         piso_actual_sim <= 3; 
         
         --se pide el boton 2
         flanco(2);
-        botones_e_sim <= "0010";
+        botones_e_sim <= "1101";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         
         --baja un piso
         flanco(1);
          --se pide otro boton 
-        botones_e_sim <= "0001";
+        botones_e_sim <= "1110";
         flanco(1);
-        botones_e_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
         piso_actual_sim <= 2; 
         flanco(2);
         piso_actual_sim <= 1; 
@@ -214,12 +216,12 @@ begin
         
         --se pide el boton 2 interior y el 3 exterior
         flanco(2);
-        botones_i_sim <= "0010";
-        botones_e_sim <= "0100";
+        botones_i_sim <= "1101";
+        botones_e_sim <= "1011";
 
         flanco(1);
-        botones_e_sim <= (others => '0');
-        botones_i_sim <= (others => '0');
+        botones_e_sim <= (others => '1');
+        botones_i_sim <= (others => '1');
         
         flanco(2);
         piso_actual_sim <= 2; 
@@ -227,12 +229,12 @@ begin
         
         --se pide el boton 1 interior y el 3 exterior
         flanco(2);
-        botones_i_sim <= "0001";
-        botones_e_sim <= "1000";
+        botones_i_sim <= "1110";
+        botones_e_sim <= "0111";
 
         flanco(1);
-        botones_i_sim <= (others => '0');
-        botones_e_sim <= (others => '0');
+        botones_i_sim <= (others => '1');
+        botones_e_sim <= (others => '1');
         
         flanco(2);
         piso_actual_sim <= 1; --no se llega a mostrar en la simulacion, necesitaria un flanco de espera

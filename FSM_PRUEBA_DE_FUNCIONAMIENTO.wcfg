@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="468.666 ns"></ZoomStartTime>
-      <ZoomEndTime time="698.267 ns"></ZoomEndTime>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="909.454 ns"></ZoomEndTime>
       <Cursor1Time time="660.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="12" />
    <wave_markers>
       <marker time="95000" label="" />
       <marker time="185000" label="" />
@@ -57,6 +57,10 @@
    <wvobject fp_name="/FSM_tb/LEDS_INDICADORES_ESTADOS" type="array">
       <obj_property name="ElementShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
       <obj_property name="ObjectShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FSM_tb/estado_actual" type="array">
+      <obj_property name="ElementShortName">estado_actual[5:0]</obj_property>
+      <obj_property name="ObjectShortName">estado_actual[5:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/FSM_tb/TbClock" type="logic">
       <obj_property name="ElementShortName">TbClock</obj_property>
