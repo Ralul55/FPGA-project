@@ -26,10 +26,10 @@ architecture Behavioral of piso_actual is
     
     -- temporizador pisos --
     constant TIEMPO_POR_PISO : integer := 2;      -- segundos
-    constant MAX_COUNT_PISO : integer := CLK_FREQ * TIEMPO_POR_PISO;
-    --constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
+    --constant MAX_COUNT_PISO : integer := CLK_FREQ * TIEMPO_POR_PISO;
+    constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
 
-    signal timer_cnt_piso  : integer range 0 to MAX_COUNT_PISO := 0;
+    signal timer_cnt_piso  : integer range 0 to MAX_COUNT_ESPERA := 0;
     
 begin
     piso_act<=piso_actual;
@@ -62,7 +62,7 @@ begin
                 case estado_actual is
                     when "000010" => --subiendo
                         if piso_actual < piso_deseado then 
-                            if timer_cnt_piso = MAX_COUNT_PISO -1 then 
+                            if timer_cnt_piso = MAX_COUNT_ESPERA -1 then 
                                 timer_cnt_piso <= 0;
                                 piso_actual <= piso_actual +1;
                             else 
@@ -73,8 +73,8 @@ begin
                         end if;
                 
                     when "000100" => --bajando
-                        if piso_actual > piso_deseado then 
-                            if timer_cnt_piso = MAX_COUNT_PISO -1 then 
+                        if piso_actual > piso_deseado and (piso_actual > 1)then 
+                            if timer_cnt_piso = MAX_COUNT_ESPERA -1 then 
                                 timer_cnt_piso <= 0;
                                 piso_actual <= piso_actual -1;
                             else 

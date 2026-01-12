@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Ascensor_FPGA.srcs/sources_1/new/Piso_Decoder.vhd" \
+"../../../../Ascensor_FPGA.srcs/sources_1/new/piso_actual.vhd" \
+"../../../../Ascensor_FPGA.srcs/sim_1/new/piso_actual_tb.vhd" \
+
+# Do not sort compile order
+nosort

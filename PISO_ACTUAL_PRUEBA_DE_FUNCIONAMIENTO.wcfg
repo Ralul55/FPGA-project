@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="piso_actual_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="piso_actual_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="402.000001 us"></ZoomEndTime>
+      <Cursor1Time time="3.550000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="163"></NameColumnWidth>
+      <ValueColumnWidth column_width="64"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/piso_actual_tb/RESET_tb" type="logic">
+      <obj_property name="ElementShortName">RESET_tb</obj_property>
+      <obj_property name="ObjectShortName">RESET_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/piso_actual_tb/CLK_tb" type="logic">
+      <obj_property name="ElementShortName">CLK_tb</obj_property>
+      <obj_property name="ObjectShortName">CLK_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/piso_actual_tb/boton_e_tb" type="array">
+      <obj_property name="ElementShortName">boton_e_tb[4:1]</obj_property>
+      <obj_property name="ObjectShortName">boton_e_tb[4:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/piso_actual_tb/estado_actual_tb" type="array">
+      <obj_property name="ElementShortName">estado_actual_tb[5:0]</obj_property>
+      <obj_property name="ObjectShortName">estado_actual_tb[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/piso_actual_tb/piso_act_tb" type="other">
+      <obj_property name="ElementShortName">piso_act_tb</obj_property>
+      <obj_property name="ObjectShortName">piso_act_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/piso_actual_tb/piso_des_tb" type="other">
+      <obj_property name="ElementShortName">piso_des_tb</obj_property>
+      <obj_property name="ObjectShortName">piso_des_tb</obj_property>
+   </wvobject>
+</wave_config>
