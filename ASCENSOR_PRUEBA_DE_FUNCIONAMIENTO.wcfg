@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="cfg_ascensor_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ascensor_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="210.233 ns"></ZoomEndTime>
+      <Cursor1Time time="145.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="163"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/ascensor_tb/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/clk_sim" type="logic">
+      <obj_property name="ElementShortName">clk_sim</obj_property>
+      <obj_property name="ObjectShortName">clk_sim</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/S_fin_carrera" type="logic">
+      <obj_property name="ElementShortName">S_fin_carrera</obj_property>
+      <obj_property name="ObjectShortName">S_fin_carrera</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/S_ini_carrera" type="logic">
+      <obj_property name="ElementShortName">S_ini_carrera</obj_property>
+      <obj_property name="ObjectShortName">S_ini_carrera</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/S_presencia" type="logic">
+      <obj_property name="ElementShortName">S_presencia</obj_property>
+      <obj_property name="ObjectShortName">S_presencia</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/botones_i_sim" type="array">
+      <obj_property name="ElementShortName">botones_i_sim[4:1]</obj_property>
+      <obj_property name="ObjectShortName">botones_i_sim[4:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/botones_e_sim" type="array">
+      <obj_property name="ElementShortName">botones_e_sim[4:1]</obj_property>
+      <obj_property name="ObjectShortName">botones_e_sim[4:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/LEDS_INDICADORES_ESTADOS" type="array">
+      <obj_property name="ElementShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
+      <obj_property name="ObjectShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/LEDS_PISOS" type="array">
+      <obj_property name="ElementShortName">LEDS_PISOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">LEDS_PISOS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/LEDS_PISO_deseado" type="array">
+      <obj_property name="ElementShortName">LEDS_PISO_deseado[3:0]</obj_property>
+      <obj_property name="ObjectShortName">LEDS_PISO_deseado[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ascensor_tb/LEDS_DISPLAYS" type="array">
+      <obj_property name="ElementShortName">LEDS_DISPLAYS[6:0]</obj_property>
+      <obj_property name="ObjectShortName">LEDS_DISPLAYS[6:0]</obj_property>
+   </wvobject>
+</wave_config>

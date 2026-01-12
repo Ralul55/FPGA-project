@@ -10,7 +10,7 @@ entity edge_detector is
 end edge_detector;
 
 architecture Behavioral of edge_detector is
-    signal sreg : std_logic_vector(2 downto 0);  
+    signal sreg : std_logic_vector(2 downto 0):= (others => '1');
     
 begin
     process (CLK)

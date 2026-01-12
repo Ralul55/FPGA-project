@@ -10,7 +10,7 @@ entity sincro is
 end sincro;
 
 architecture Behavioral of sincro is
-    signal sreg : std_logic_vector(1 downto 0);
+    signal sreg : std_logic_vector(1 downto 0):= (others => '1');
 begin
     process (CLK)
     begin
