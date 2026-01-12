@@ -32,7 +32,8 @@ architecture Behavioral of piso_actual is
     signal timer_cnt_piso  : integer range 0 to MAX_COUNT_PISO := 0;
     
 begin
-
+    piso_act<=piso_actual;
+    piso_des<=piso_deseado;
    --------------------------------------------
     u_piso_decoder : entity work.Piso_Decoder
         port map(
@@ -57,9 +58,6 @@ begin
                 piso_actual <= 1;
                 timer_cnt_piso <= 0;
             elsif rising_edge(CLK) then
-            
-                piso_act<=piso_actual;
-                piso_des<=piso_deseado;
                 
                 case estado_actual is
                     when "000010" => --subiendo

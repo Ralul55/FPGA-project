@@ -152,7 +152,8 @@ begin
                 estado_actual <= "100000";
                 LEDS_INDICADORES_ESTADOS <= "100000";
         when others =>
-               LEDS_INDICADORES_ESTADOS <= (others => '0');
+                estado_actual <= "000000";
+                LEDS_INDICADORES_ESTADOS <= (others => '0');
 
         end case;
     end process;
