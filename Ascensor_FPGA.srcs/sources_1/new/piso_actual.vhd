@@ -26,8 +26,8 @@ architecture Behavioral of piso_actual is
     
     -- temporizador pisos --
     constant TIEMPO_POR_PISO : integer := 2;      -- segundos
-    --constant MAX_COUNT_PISO : integer := CLK_FREQ * TIEMPO_POR_PISO;
-    constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
+    constant MAX_COUNT_ESPERA : integer := CLK_FREQ * TIEMPO_POR_PISO;
+    --constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
 
     signal timer_cnt_piso  : integer range 0 to MAX_COUNT_ESPERA := 0;
     
@@ -48,10 +48,7 @@ begin
     --------------------------------------------
     
      ------------------------------------------------------------------------------------
-    -- Aquí se programará el decodificador de la salida de los LED's de los pisos
-    
-    -- FALTA, CAMBIOS DE ESTADO CON TEMPORIZADOR O CON SENSOR
-    
+    -- Aquí se programará el decodificador de la salida de los LED's de los pisos    
     cambio_piso: process(CLK, RESET)
         begin
             if (RESET = '0') then

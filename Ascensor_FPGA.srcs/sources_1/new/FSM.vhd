@@ -41,8 +41,8 @@ architecture Behavioral of FSM is
     
     -- temporizador puerta --
     constant TIEMPO_ESPERA : integer := 5;           -- segundos
-    --constant MAX_COUNT_ESPERA : integer := CLK_FREQ * TIEMPO_ESPERA;
-    constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
+    constant MAX_COUNT_ESPERA : integer := CLK_FREQ * TIEMPO_ESPERA;
+    --constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
 
     signal timer_cnt_espera  : integer range 0 to MAX_COUNT_ESPERA := 0;
     signal timer_done_espera : std_logic := '0';

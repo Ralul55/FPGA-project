@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="5a03e47e56434a179e816b7761af0c2c"/>
@@ -59,7 +59,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="nexys-a7-100t"/>
-    <Option Name="WTXSimLaunchSim" Val="100"/>
+    <Option Name="WTXSimLaunchSim" Val="102"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -108,12 +108,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/FSM.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/Piso_Decoder.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -121,6 +115,12 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/piso_actual.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/FSM.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -144,6 +144,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/debouncer.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/edge_detector.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -152,13 +159,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/edge_detector_vect.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/debouncer.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -187,20 +187,20 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/new/piso_actual_tb.vhd">
+      <File Path="$PSRCDIR/sim_1/new/ascensor_tb.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/new/ascensor_tb.vhd">
+      <File Path="$PSRCDIR/sim_1/new/FSM_tb.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/new/FSM_tb.vhd">
+      <File Path="$PSRCDIR/sim_1/new/piso_actual_tb.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -224,19 +224,19 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg">
+      <File Path="$PPRDIR/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg">
         <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg">
+      <File Path="$PPRDIR/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg">
         <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="piso_actual_tb"/>
+        <Option Name="TopModule" Val="ascensor_tb"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -248,8 +248,8 @@
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg"/>
-        <Option Name="XSimWcfgFile" Val="$PPRDIR/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">

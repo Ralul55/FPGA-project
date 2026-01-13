@@ -54,14 +54,33 @@
 #endif
 typedef void (*funcp)(char *, char *);
 extern int main(int, char**);
-funcp funcTab[0] = {};
-const int NumRelocateId= 0;
+IKI_DLLESPEC extern void execute_94(char*, char *);
+IKI_DLLESPEC extern void execute_95(char*, char *);
+IKI_DLLESPEC extern void execute_96(char*, char *);
+IKI_DLLESPEC extern void execute_17(char*, char *);
+IKI_DLLESPEC extern void execute_45(char*, char *);
+IKI_DLLESPEC extern void execute_46(char*, char *);
+IKI_DLLESPEC extern void execute_79(char*, char *);
+IKI_DLLESPEC extern void execute_80(char*, char *);
+IKI_DLLESPEC extern void execute_84(char*, char *);
+IKI_DLLESPEC extern void execute_82(char*, char *);
+IKI_DLLESPEC extern void execute_83(char*, char *);
+IKI_DLLESPEC extern void execute_86(char*, char *);
+IKI_DLLESPEC extern void execute_87(char*, char *);
+IKI_DLLESPEC extern void execute_88(char*, char *);
+IKI_DLLESPEC extern void execute_92(char*, char *);
+IKI_DLLESPEC extern void execute_93(char*, char *);
+IKI_DLLESPEC extern void execute_91(char*, char *);
+IKI_DLLESPEC extern void transaction_1(char*, char*, unsigned, unsigned, unsigned);
+IKI_DLLESPEC extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
+funcp funcTab[19] = {(funcp)execute_94, (funcp)execute_95, (funcp)execute_96, (funcp)execute_17, (funcp)execute_45, (funcp)execute_46, (funcp)execute_79, (funcp)execute_80, (funcp)execute_84, (funcp)execute_82, (funcp)execute_83, (funcp)execute_86, (funcp)execute_87, (funcp)execute_88, (funcp)execute_92, (funcp)execute_93, (funcp)execute_91, (funcp)transaction_1, (funcp)vhdl_transfunc_eventcallback};
+const int NumRelocateId= 19;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/ascensor_tb_behav/xsim.reloc",  (void **)funcTab, 0);
-	iki_vhdl_file_variable_register(dp + 1720);
-	iki_vhdl_file_variable_register(dp + 1776);
+	iki_relocate(dp, "xsim.dir/ascensor_tb_behav/xsim.reloc",  (void **)funcTab, 19);
+	iki_vhdl_file_variable_register(dp + 17096);
+	iki_vhdl_file_variable_register(dp + 17152);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */

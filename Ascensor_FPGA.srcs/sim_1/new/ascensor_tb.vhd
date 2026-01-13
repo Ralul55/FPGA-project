@@ -108,31 +108,33 @@ begin
         -- RESET (Activo a nivel bajo)
 --------------------------------------------------------------------    
 
-        flanco(10);
+        flanco(5);
         RESET <= '0';
-        flanco(10);
+        flanco(5);
         RESET <= '1';
 
         flanco(10);
         botones_e_sim <= "0111";
-        flanco(10);
+        flanco(5);
         botones_e_sim <= (others => '1');
 
-        flanco(10);
+        flanco(5);
         RESET <= '0';
 
-        flanco(10);
+        flanco(5);
         botones_e_sim <= "0111";
-        flanco(10);
+        flanco(5);
         botones_e_sim <= (others => '1');
 
-        flanco(10);
+        flanco(5);
         RESET <= '1';
-        flanco(10);
+        flanco(5);
         botones_e_sim <= "0111";
-        flanco(2_100_000);
+        flanco(5);
         botones_e_sim <= "1111";
-        flanco(2_100_000);
+        flanco(5);
+        flanco(5);
+
         
 
 --------------------------------------------------------------------

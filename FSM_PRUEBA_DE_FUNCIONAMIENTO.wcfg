@@ -3,22 +3,22 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="FSM_tb_behav.wdb" id="1">
+      <db_ref path="ascensor_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="FSM_tb" />
+            <top_module name="ascensor_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="909.454 ns"></ZoomEndTime>
+      <ZoomEndTime time="1,340.249 ns"></ZoomEndTime>
       <Cursor1Time time="660.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="173"></NameColumnWidth>
+      <NameColumnWidth column_width="168"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="0" />
    <wave_markers>
       <marker time="95000" label="" />
       <marker time="185000" label="" />
@@ -26,52 +26,4 @@
       <marker time="405000" label="" />
       <marker time="545000" label="" />
    </wave_markers>
-   <wvobject fp_name="/FSM_tb/RESET" type="logic">
-      <obj_property name="ElementShortName">RESET</obj_property>
-      <obj_property name="ObjectShortName">RESET</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/CLK" type="logic">
-      <obj_property name="ElementShortName">CLK</obj_property>
-      <obj_property name="ObjectShortName">CLK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/S_fin_carrera" type="logic">
-      <obj_property name="ElementShortName">S_fin_carrera</obj_property>
-      <obj_property name="ObjectShortName">S_fin_carrera</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/S_ini_carrera" type="logic">
-      <obj_property name="ElementShortName">S_ini_carrera</obj_property>
-      <obj_property name="ObjectShortName">S_ini_carrera</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/S_presencia" type="logic">
-      <obj_property name="ElementShortName">S_presencia</obj_property>
-      <obj_property name="ObjectShortName">S_presencia</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/piso_actual" type="other">
-      <obj_property name="ElementShortName">piso_actual</obj_property>
-      <obj_property name="ObjectShortName">piso_actual</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/piso_deseado" type="other">
-      <obj_property name="ElementShortName">piso_deseado</obj_property>
-      <obj_property name="ObjectShortName">piso_deseado</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/LEDS_INDICADORES_ESTADOS" type="array">
-      <obj_property name="ElementShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
-      <obj_property name="ObjectShortName">LEDS_INDICADORES_ESTADOS[5:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/estado_actual" type="array">
-      <obj_property name="ElementShortName">estado_actual[5:0]</obj_property>
-      <obj_property name="ObjectShortName">estado_actual[5:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/TbClock" type="logic">
-      <obj_property name="ElementShortName">TbClock</obj_property>
-      <obj_property name="ObjectShortName">TbClock</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/TbSimEnded" type="logic">
-      <obj_property name="ElementShortName">TbSimEnded</obj_property>
-      <obj_property name="ObjectShortName">TbSimEnded</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FSM_tb/TbPeriod" type="other">
-      <obj_property name="ElementShortName">TbPeriod</obj_property>
-      <obj_property name="ObjectShortName">TbPeriod</obj_property>
-   </wvobject>
 </wave_config>
