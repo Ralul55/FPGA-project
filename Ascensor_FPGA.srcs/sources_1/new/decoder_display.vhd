@@ -43,7 +43,9 @@ architecture dataflow of decoder_display is
 begin
         WITH code SELECT
                 led <= --"0000001" WHEN "0000",
-                       "1001111" WHEN 1,
+                       --"1001111" WHEN 1,
+                       
+                       "1111110" WHEN 1,
                        "0010010" WHEN 2,
                        --"0000110" WHEN "0011",
                        --"1001100" WHEN "0100",

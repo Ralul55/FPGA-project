@@ -1,0 +1,314 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Tue Jan 13 16:06:54 2026
+# Process ID: 23504
+# Current directory: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13600 C:\Users\ainar\OneDrive\Escritorio\trabajo_fpga\FPGA-project\Ascensor_FPGA.xpr
+# Log file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/vivado.log
+# Journal file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project\vivado.jou
+# Running On        :PortatilAinara
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+# CPU Frequency     :2592 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :17023 MB
+# Swap memory       :4294 MB
+# Total Virtual     :21318 MB
+# Available Virtual :13018 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+run all
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+run all
+run all
+run 500 ns
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+close_project
+open_project C:/Users/ainar/OneDrive/Escritorio/PRACTICA_0/PRACTICA_0.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run 500 ns
+run 500 ns
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+run 500 ns
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run 500 ns
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source piso_actual_tb.tcl
+run all
+run all
+run all
+run all
+run all
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/new/ascensor_tb.vhd
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ascensor_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+open_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+open_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+run 500 ns
+run 500 ns
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+open_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+run 500 ns
+run all
+run all
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+create_wave_config
+remove_forces { {/ascensor_tb/RESET} }
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+set_property xsim.view {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg} [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+update_files -from_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/new/ascensor_tb.vhd -to_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/imports/new/ascensor_tb.vhd -filesets [get_filesets *]
+update_files -from_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/new/ascensor_tb.vhd -to_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/imports/new/ascensor_tb.vhd -filesets [get_filesets *]
+close_sim
+launch_simulation
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/imports/new/ascensor_tb.vhd] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/imports/new/ascensor_tb.vhd
+close_project
+open_project C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/new/ascensor_tb.vhd w ]
+add_files -fileset sim_1 C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.srcs/sim_1/new/ascensor_tb.vhd
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+close_sim
+close_project
+open_project C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+run 500 ns
+run 500 ns
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl
+run 500 ns
+run 500 ns
+save_wave_config {C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/FSM_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PSIO_DECODER_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/PISO_ACTUAL_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+open_wave_config C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/ASCENSOR_PRUEBA_DE_FUNCIONAMIENTO.wcfg
+source ascensor_tb.tcl

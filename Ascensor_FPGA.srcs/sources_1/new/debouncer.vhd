@@ -2,15 +2,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity debounce is
+entity debouncer is
     port (
         CLK      : in  std_logic;
         BTN_IN   : in  std_logic;
         BTN_OUT  : out std_logic
     );
-end debounce;
+end debouncer;
 
-architecture Behavioral of debounce is
+architecture Behavioral of debouncer is
     constant MAX_COUNT : unsigned(19 downto 0) := to_unsigned(999999, 20); -- ~10 ms a 100 MHz
     signal count       : unsigned(19 downto 0) := (others => '0');
     signal state       : std_logic := '1';

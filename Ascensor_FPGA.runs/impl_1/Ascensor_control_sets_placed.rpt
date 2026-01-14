@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Fri Jan  9 21:42:34 2026
-| Host         : LenovoDeRaul running 64-bit major release  (build 9200)
+| Date         : Wed Jan 14 12:47:17 2026
+| Host         : PortatilAinara running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Ascensor_control_sets_placed.rpt
 | Design       : Ascensor
 | Device       : xc7a100t
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    21 |
-|    Minimum number of control sets                        |    21 |
+| Total control sets                                       |     3 |
+|    Minimum number of control sets                        |     3 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    91 |
+| Unused register locations in slices containing registers |    10 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    21 |
-| >= 0 to < 4        |     8 |
-| >= 4 to < 6        |     1 |
-| >= 6 to < 8        |     2 |
+| Total control sets |     3 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    10 |
+| >= 16              |     2 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              32 |           12 |
-| No           | No                    | Yes                    |               4 |            2 |
-| No           | Yes                   | No                     |             168 |           48 |
-| Yes          | No                    | No                     |              14 |           12 |
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |              35 |           16 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |              35 |            9 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -70,30 +70,12 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
-|  Clock Signal  |                   Enable Signal                  |              Set/Reset Signal              | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
-|  CLK_IBUF_BUFG | u_db_i_vec/gen[1].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_i_vec/gen[2].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_i_vec/gen[3].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_i_vec/gen[4].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_e_vec/gen[1].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_e_vec/gen[2].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_e_vec/gen[3].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | u_db_e_vec/gen[4].u/entrada0                     |                                            |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG |                                                  | u_fsm/RESET                                |                2 |              4 |         2.00 |
-|  CLK_IBUF_BUFG | RESET_IBUF                                       |                                            |                4 |              6 |         1.50 |
-|  CLK_IBUF_BUFG | u_piso_actual/FSM_onehot_estado_actual_reg[3][0] | u_fsm/RESET                                |                3 |              6 |         2.00 |
-|  CLK_IBUF_BUFG |                                                  | u_db_i_vec/gen[2].u/contador[0]_i_1__1_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_i_vec/gen[3].u/contador[0]_i_1__0_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_i_vec/gen[4].u/contador[0]_i_1_n_0    |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_e_vec/gen[1].u/contador[0]_i_1__6_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_e_vec/gen[2].u/contador[0]_i_1__5_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_e_vec/gen[3].u/contador[0]_i_1__4_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_e_vec/gen[4].u/contador[0]_i_1__3_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG |                                                  | u_db_i_vec/gen[1].u/contador[0]_i_1__2_n_0 |                6 |             21 |         3.50 |
-|  CLK_IBUF_BUFG | u_fsm/timer_cnt_espera[28]_i_1_n_0               | u_fsm/RESET                                |                6 |             29 |         4.83 |
-|  CLK_IBUF_BUFG |                                                  |                                            |               12 |             40 |         3.33 |
-+----------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
++----------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
+|  Clock Signal  |                   Enable Signal                  | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
+|  CLK_IBUF_BUFG | u_fsm/FSM_onehot_senial_estado_actual[5]_i_1_n_0 | u_fsm/RESET      |                3 |              6 |         2.00 |
+|  CLK_IBUF_BUFG | u_fsm/timer_cnt_espera_0                         | u_fsm/RESET      |                6 |             29 |         4.83 |
+|  CLK_IBUF_BUFG |                                                  | u_fsm/RESET      |               16 |             35 |         2.19 |
++----------------+--------------------------------------------------+------------------+------------------+----------------+--------------+
 
 

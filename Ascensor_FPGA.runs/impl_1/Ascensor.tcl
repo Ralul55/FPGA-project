@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/impl_1/Ascensor.tcl"
+  variable script "C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.runs/impl_1/Ascensor.tcl"
   variable category "vivado_impl"
 }
 
@@ -106,10 +106,9 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 3
-  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 12  }
   open_checkpoint Ascensor_routed.dcp
-  set_property webtalk.parent_dir C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.cache/wt [current_project]
 set_property TOP Ascensor [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

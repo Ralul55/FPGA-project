@@ -1,7 +1,7 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Fri Jan  9 21:42:33 2026
-| Host         : LenovoDeRaul
+| Date         : Wed Jan 14 12:47:15 2026
+| Host         : PortatilAinara
 | Design       : design_1
 | Device       : xc7a100t-csg324-1--
 -------------------------------------

@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Fri Jan  9 21:43:05 2026
-| Host             : LenovoDeRaul running 64-bit major release  (build 9200)
+| Date             : Wed Jan 14 12:47:47 2026
+| Host             : PortatilAinara running 64-bit major release  (build 9200)
 | Command          : report_power -file Ascensor_power_routed.rpt -pb Ascensor_power_summary_routed.pb -rpx Ascensor_power_routed.rpx
 | Design           : Ascensor
 | Device           : xc7a100tcsg324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.102        |
+| Total On-Chip Power (W)  | 0.100        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.005        |
+| Dynamic (W)              | 0.003        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -49,21 +49,20 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+-------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
-+-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.002 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |      538 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      128 |     63400 |            0.20 |
-|   CARRY4                |    <0.001 |       58 |     15850 |            0.37 |
-|   Register              |    <0.001 |      253 |    126800 |            0.20 |
-|   Others                |     0.000 |       55 |       --- |             --- |
-|   LUT as Shift Register |     0.000 |        8 |     19000 |            0.04 |
-| Signals                 |    <0.001 |      433 |       --- |             --- |
-| I/O                     |     0.002 |       41 |       210 |           19.52 |
-| Static Power            |     0.097 |          |           |                 |
-| Total                   |     0.102 |          |           |                 |
-+-------------------------+-----------+----------+-----------+-----------------+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      227 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       97 |     63400 |            0.15 |
+|   Register     |    <0.001 |       70 |    126800 |            0.06 |
+|   CARRY4       |    <0.001 |       17 |     15850 |            0.11 |
+|   Others       |     0.000 |        7 |       --- |             --- |
+| Signals        |    <0.001 |      196 |       --- |             --- |
+| I/O            |     0.002 |       41 |       210 |           19.52 |
+| Static Power   |     0.097 |          |           |                 |
+| Total          |     0.100 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.003 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.016 |       0.001 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -138,12 +137,10 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------+-----------+
-| Name         | Power (W) |
-+--------------+-----------+
-| Ascensor     |     0.005 |
-|   u_db_e_vec |     0.001 |
-|   u_db_i_vec |     0.001 |
-+--------------+-----------+
++----------+-----------+
+| Name     | Power (W) |
++----------+-----------+
+| Ascensor |     0.003 |
++----------+-----------+
 
 

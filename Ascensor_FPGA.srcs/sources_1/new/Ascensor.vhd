@@ -80,8 +80,11 @@ begin
             RESET => RESET,
             CLK => CLK,
     
-            boton_i => boton_i_sinc,
-            boton_e => boton_e_sinc,
+            --boton_i => boton_i_sinc,
+            --boton_e => boton_e_sinc,
+            
+            boton_i => boton_i,
+            boton_e => boton_e,
             
             --para pruebas del debouncer
             --boton_i => boton_i_deb,
