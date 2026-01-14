@@ -41,6 +41,7 @@ begin
             clk          => CLK,
             botones_i    => boton_i,
             botones_e    => boton_e,
+            estado_actual => estado_actual,
             piso_actual  => piso_actual,
             piso_deseado => piso_deseado
         );

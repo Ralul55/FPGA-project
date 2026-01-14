@@ -45,18 +45,15 @@ begin
                 led <= --"0000001" WHEN "0000",
                        --"1001111" WHEN 1,
                        
-                       "1111110" WHEN 1,
-                       "0010010" WHEN 2,
-                       --"0000110" WHEN "0011",
-                       --"1001100" WHEN "0100",
-                       
-                       "0000110" WHEN 3, --displayamos 3 cuando piso 3
-                       "1001100" WHEN 4, --displayamos 4 cuando piso 4
+                       "1111001" when 1,
+                       "0100100" when 2,
+                       "0110000" when 3,
+                       "0011001" when 4,
+                       "1111111" when others;
                        
                        --"0100100" WHEN "0101",
                        --"0100000" WHEN "0110",
                        --"0001111" WHEN "0111",
                        --"0000000" WHEN "1000",
                        --"0000100" WHEN "1001",
-                       "1111110" WHEN others;
 end architecture dataflow;

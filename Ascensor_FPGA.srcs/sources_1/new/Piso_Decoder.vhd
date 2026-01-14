@@ -7,6 +7,7 @@ entity Piso_Decoder is
         clk           : in  std_logic;
         botones_i     : in  std_logic_vector(4 downto 1); -- [4 interiores ] (pull-down)
         botones_e     : in  std_logic_vector(4 downto 1); -- [ 4 exteriores] (pull-down)
+        estado_actual : IN std_logic_vector (5 downto 0);
         piso_actual   : in  integer range 0 to 4;         -- para resetear requests
         piso_deseado  : out integer range 0 to 4
     );
@@ -32,7 +33,11 @@ begin
             
             -- Registrar un botón solo si no hay request pendiente
             
-            if llegada_pend = '1' then
+            if (request_reg /= 0) and (piso_actual = request_reg) then
+                llegada_pend <= '1';
+            end if;
+
+            if (estado_actual = "00001") and (llegada_pend = '1') then
                 request_reg  <= 0;
                 llegada_pend <= '0';
 

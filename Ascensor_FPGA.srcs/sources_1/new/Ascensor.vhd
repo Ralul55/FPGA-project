@@ -19,6 +19,7 @@ entity Ascensor is
         
         LEDS_PISOS : OUT std_logic_vector (3 downto 0);
         LEDS_PISO_deseado: OUT std_logic_vector (3 downto 0);
+        LEDS_control : OUT std_logic_vector (3 downto 0);
         CNTRL_DISPLAY : OUT std_logic_vector(6 DOWNTO 0);
         LEDS_DISPLAYS : OUT std_logic_vector(6 DOWNTO 0)  --bcd
         
@@ -111,6 +112,7 @@ begin
             
             
             estado_actual => estado_actual,
+            LEDS_control=>LEDS_control,
             LEDS_INDICADORES_ESTADOS => LEDS_INDICADORES_ESTADOS
             
          );
@@ -123,7 +125,6 @@ begin
             
             LEDS_PISOS => LEDS_PISOS,
             LEDS_PISO_deseado => LEDS_PISO_deseado,
-            
             CNTRL_DISPLAY => CNTRL_DISPLAY,
             LEDS_DISPLAYS => LEDS_DISPLAYS
          );

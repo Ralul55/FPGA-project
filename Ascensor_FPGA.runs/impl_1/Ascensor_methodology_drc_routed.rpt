@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Wed Jan 14 12:47:47 2026
-| Host         : PortatilAinara running 64-bit major release  (build 9200)
+| Date         : Wed Jan 14 13:39:58 2026
+| Host         : LenovoDeRaul running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Ascensor_methodology_drc_routed.rpt -pb Ascensor_methodology_drc_routed.pb -rpx Ascensor_methodology_drc_routed.rpx
 | Design       : Ascensor
 | Device       : xc7a100tcsg324-1
@@ -23,12 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 33
-+-----------+----------+-------------------------------+------------+
-| Rule      | Severity | Description                   | Violations |
-+-----------+----------+-------------------------------+------------+
-| TIMING-18 | Warning  | Missing input or output delay | 33         |
-+-----------+----------+-------------------------------+------------+
+             Violations found: 38
++-----------+----------+--------------------------------+------------+
+| Rule      | Severity | Description                    | Violations |
++-----------+----------+--------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay  | 33         |
+| TIMING-20 | Warning  | Non-clocked latch              | 4          |
+| LATCH-1   | Advisory | Existing latches in the design | 1          |
++-----------+----------+--------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -195,6 +197,31 @@ Related violations: <none>
 TIMING-18#33 Warning
 Missing input or output delay  
 An output delay is missing on LEDS_PISO_deseado[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch u_fsm/LEDS_control_reg[0] cannot be properly analyzed as its control pin u_fsm/LEDS_control_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch u_fsm/LEDS_control_reg[1] cannot be properly analyzed as its control pin u_fsm/LEDS_control_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch u_fsm/LEDS_control_reg[2] cannot be properly analyzed as its control pin u_fsm/LEDS_control_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch u_fsm/LEDS_control_reg[3] cannot be properly analyzed as its control pin u_fsm/LEDS_control_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 4 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

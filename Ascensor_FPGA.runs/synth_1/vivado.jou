@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Jan 14 12:45:31 2026
-# Process ID: 1560
-# Current directory: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.runs/synth_1
+# Start of session at: Wed Jan 14 13:37:53 2026
+# Process ID: 5708
+# Current directory: C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/synth_1
 # Command line: vivado.exe -log Ascensor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Ascensor.tcl
-# Log file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.runs/synth_1/Ascensor.vds
-# Journal file: C:/Users/ainar/OneDrive/Escritorio/trabajo_fpga/FPGA-project/Ascensor_FPGA.runs/synth_1\vivado.jou
-# Running On        :PortatilAinara
+# Log file: C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/synth_1/Ascensor.vds
+# Journal file: C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/synth_1\vivado.jou
+# Running On        :LenovoDeRaul
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :26100
-# Processor Detail  :Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
-# CPU Frequency     :2592 MHz
-# CPU Physical cores:6
+# Processor Detail  :13th Gen Intel(R) Core(TM) i5-13420H
+# CPU Frequency     :2611 MHz
+# CPU Physical cores:8
 # CPU Logical cores :12
-# Host memory       :17023 MB
-# Swap memory       :4294 MB
-# Total Virtual     :21318 MB
-# Available Virtual :10136 MB
+# Host memory       :16857 MB
+# Swap memory       :15569 MB
+# Total Virtual     :32427 MB
+# Available Virtual :15041 MB
 #-----------------------------------------------------------
 source Ascensor.tcl -notrace

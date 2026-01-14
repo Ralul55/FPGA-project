@@ -23,6 +23,7 @@ entity FSM is
         piso_deseado : IN integer range 0 to 4;
         
         estado_actual: OUT std_logic_vector(5 DOWNTO 0);
+        LEDS_control : OUT std_logic_vector (3 downto 0);
         LEDS_INDICADORES_ESTADOS : OUT std_logic_vector (5 downto 0) --se usara como salida indicativa
     );  
 end FSM;
@@ -139,18 +140,23 @@ begin
         when Subiendo =>
                 estado_actual <= "000010";
                 LEDS_INDICADORES_ESTADOS <= "000010";
+                LEDS_control<="0001";
         when Bajando =>
                 estado_actual <= "000100";
                 LEDS_INDICADORES_ESTADOS <= "000100";
+                LEDS_control<="0100";
+
         when Abriendo =>
                 estado_actual <= "001000";
                 LEDS_INDICADORES_ESTADOS <= "001000";
+                LEDS_control<="0010";
         when Espera =>
                 estado_actual <= "010000";
                 LEDS_INDICADORES_ESTADOS <= "010000";
         when Cerrando =>
                 estado_actual <= "100000";
                 LEDS_INDICADORES_ESTADOS <= "100000";
+                LEDS_control<="1000";
         when others =>
                 estado_actual <= "000000";
                 LEDS_INDICADORES_ESTADOS <= (others => '0');
