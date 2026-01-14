@@ -73,10 +73,6 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/sincro.vhd
-  C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/sincro_vect.vhd
-  C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/debouncer.vhd
-  C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/debounce_vect.vhd
   C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/Piso_Decoder.vhd
   C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/piso_actual.vhd
   C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.srcs/sources_1/new/FSM.vhd

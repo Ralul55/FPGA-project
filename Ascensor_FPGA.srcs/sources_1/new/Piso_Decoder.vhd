@@ -37,12 +37,12 @@ begin
                 llegada_pend <= '1';
             end if;
 
-            if (estado_actual = "00001") and (llegada_pend = '1') then
+            if (llegada_pend = '1') then
                 request_reg  <= 0;
                 llegada_pend <= '0';
 
             else
-                if request_reg = 0 then
+                if request_reg = 0 and (estado_actual = "000001") then
                 -- Revisar exteriores
                 -- Interiores (prioridad sobre exteriores)
                 -- Pull-down: botón pulsado = '1'
