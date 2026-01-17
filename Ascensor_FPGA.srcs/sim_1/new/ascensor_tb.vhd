@@ -39,8 +39,8 @@ architecture tb of ascensor_tb is
     signal S_ini_carrera : std_logic := '1';
     signal S_presencia   : std_logic := '0';
 
-    signal botones_i_sim : std_logic_vector (4 downto 1) := (others => '1');
-    signal botones_e_sim : std_logic_vector (4 downto 1) := (others => '1');
+    signal botones_i_sim : std_logic_vector (4 downto 1) := (others => '0');
+    signal botones_e_sim : std_logic_vector (4 downto 1) := (others => '0');
 
     signal LEDS_INDICADORES_ESTADOS : std_logic_vector (5 downto 0);
     signal LEDS_PISOS               : std_logic_vector (3 downto 0);
@@ -90,8 +90,8 @@ begin
         -- Se inicializan variables
         --------------------------------------------------------------------
         
-        botones_i_sim <= (others => '1');
-        botones_e_sim <= (others => '1');
+        botones_i_sim <= (others => '0');
+        botones_e_sim <= (others => '0');
 
         RESET         <= '1';
         S_fin_carrera <= '0';
@@ -100,9 +100,9 @@ begin
 
         flanco(1);
 
-        botones_e_sim <= "1110";
+        botones_e_sim <= "0001";
         flanco(1);
-        botones_e_sim <= (others => '1');
+        botones_e_sim <= (others => '0');
         
 --------------------------------------------------------------------
         -- RESET (Activo a nivel bajo)
@@ -114,24 +114,24 @@ begin
         RESET <= '1';
 
         flanco(10);
-        botones_e_sim <= "0111";
+        botones_e_sim <= "1000";
         flanco(5);
-        botones_e_sim <= (others => '1');
+        botones_e_sim <= (others => '0');
 
         flanco(5);
         RESET <= '0';
 
         flanco(5);
-        botones_e_sim <= "0111";
+        botones_e_sim <= "1000";
         flanco(5);
-        botones_e_sim <= (others => '1');
+        botones_e_sim <= (others => '0');
 
         flanco(5);
         RESET <= '1';
         flanco(5);
-        botones_e_sim <= "0111";
+        botones_e_sim <= "1000";
         flanco(5);
-        botones_e_sim <= "1111";
+        botones_e_sim <= "0000";
         flanco(5);
         flanco(5);
 

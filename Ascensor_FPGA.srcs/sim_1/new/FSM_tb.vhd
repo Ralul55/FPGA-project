@@ -16,7 +16,7 @@ use std.env.all;
                 --LED [0]: REPOSO     --> 1
 
 --el timer de 5s SE RECOMIENDA QUITAR ESE TIEMPO Y PONER 20ns, tardando aprox 30ns mas ciclo extra para establecerse (4 flancos) PARA AGILIZAR LA SIMULACION
-        --linea comentada en FSM.vhd
+--SE USA VARIABLE GENERICA
 
 entity FSM_tb is
 end FSM_tb;
@@ -24,6 +24,9 @@ end FSM_tb;
 architecture tb of FSM_tb is
 
     component FSM
+        generic (
+            MAX_COUNT_ESPERA : integer := 500000000  -- 5s a 100MHz
+        );
         port (RESET                    : in std_logic;
               CLK                      : in std_logic;
               S_fin_carrera            : in std_logic;
@@ -62,6 +65,9 @@ architecture tb of FSM_tb is
 begin
 
     dut : FSM
+    generic map(
+            MAX_COUNT_ESPERA => 2 --2ns*100MHz 
+    )
     port map (RESET                    => RESET,
               CLK                      => CLK,
               S_fin_carrera            => S_fin_carrera,

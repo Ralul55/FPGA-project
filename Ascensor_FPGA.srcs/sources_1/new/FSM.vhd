@@ -11,6 +11,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity FSM is
+    generic (
+        MAX_COUNT_ESPERA : integer := 500000000 --5S*100MHz        
+    );
     port(
         RESET: IN std_logic;
         CLK: IN std_logic;
@@ -41,8 +44,8 @@ architecture Behavioral of FSM is
     constant CLK_FREQ      : integer := 100000000; -- 100 MHz
     
     -- temporizador puerta --
-    constant TIEMPO_ESPERA : integer := 5;           -- segundos
-    constant MAX_COUNT_ESPERA : integer := CLK_FREQ * TIEMPO_ESPERA;
+    --constant TIEMPO_ESPERA : integer := 5;           -- segundos
+    --constant MAX_COUNT_ESPERA : integer := CLK_FREQ * TIEMPO_ESPERA;
     --constant MAX_COUNT_ESPERA : integer := 2; --SOLO PARA SIMULAR => 20ns
 
     signal timer_cnt_espera  : integer range 0 to MAX_COUNT_ESPERA := 0;

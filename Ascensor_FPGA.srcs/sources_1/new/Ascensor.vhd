@@ -36,6 +36,9 @@ begin
   
          -- piso actual --
         u_piso_actual : entity work.piso_actual
+        generic map(
+            MAX_COUNT_ESPERA => 200000000 --5S*100MHz 
+        )
         port map (
             RESET => RESET,
             CLK => CLK,
@@ -51,6 +54,9 @@ begin
      
        -- fsm --
       u_fsm : entity work.fsm
+      generic map(
+            MAX_COUNT_ESPERA => 500000000 --5S*100MHz   
+        )
         port map (
             RESET => RESET,
             CLK => CLK,
