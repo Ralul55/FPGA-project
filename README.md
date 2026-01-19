@@ -40,7 +40,7 @@ Aunque el detalle exacto depende de los ficheros HDL dentro de `Ascensor_FPGA.sr
 
 ---
 
-## 🧪 Simulación y pruebas
+## Simulación y pruebas
 
 El repositorio incluye configuraciones `.wcfg` para verificar partes del diseño (FSM, piso actual, decoder de piso, etc.).
 
