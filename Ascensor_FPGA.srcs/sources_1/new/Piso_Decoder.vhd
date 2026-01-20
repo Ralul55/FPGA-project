@@ -75,11 +75,7 @@ begin
                         null;
                 end case;
 
-            end if;
-            
-            -- Reset de request al llegar al piso deseado
-            if piso_actual = request_reg and request_reg /= 0 then
-                request_reg <= 0;
+      
             end if;
             
         end if;

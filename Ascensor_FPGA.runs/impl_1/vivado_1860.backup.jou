@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Jan 14 16:14:16 2026
-# Process ID: 17580
+# Start of session at: Tue Jan 20 15:34:30 2026
+# Process ID: 1860
 # Current directory: C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/impl_1
 # Command line: vivado.exe -log Ascensor.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Ascensor.tcl -notrace
 # Log file: C:/Users/raulm/OneDrive/Documentos/GitHub/FPGA-project/Ascensor_FPGA.runs/impl_1/Ascensor.vdi
@@ -17,8 +17,8 @@
 # CPU Physical cores:8
 # CPU Logical cores :12
 # Host memory       :16857 MB
-# Swap memory       :15569 MB
-# Total Virtual     :32427 MB
-# Available Virtual :14106 MB
+# Swap memory       :16642 MB
+# Total Virtual     :33500 MB
+# Available Virtual :17593 MB
 #-----------------------------------------------------------
 source Ascensor.tcl -notrace
