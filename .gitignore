@@ -1,4 +1,23 @@
 #########################################################################################################
+# EXTRA: limpieza de carpetas generadas por Vivado (añadido por el grupo)
+#########################################################################################################
+
+# Carpetas generadas automáticamente por Vivado
+Ascensor_FPGA.cache/
+Ascensor_FPGA.hw/
+Ascensor_FPGA.ip_user_files/
+Ascensor_FPGA.runs/
+Ascensor_FPGA.sim/
+
+# Carpeta interna de Vivado
+.Xil/
+
+# Journals y backups de Vivado
+vivado.jou
+vivado_*.backup.jou
+
+
+#########################################################################################################
 ##	This is an example .gitignore file for Vivado, please treat it as an example as 
 ##	it might not be complete. In addition, XAPP 1165 should be followed.
 #########################################################################################################
