@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "Piso_Decoder_behav" "xil_defaultlib.Piso_Decoder" -log "elaborate.log" 
